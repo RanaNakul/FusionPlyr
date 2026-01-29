@@ -2,7 +2,7 @@
 
 // import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
-import { FusionPlayer } from "@/components/ui/fusionplyr";
+import { FusionPlyr } from "@/components/ui/fusionplyr";
 // import SocialFlipButton from "@/components/ui/social-flip-button";
 import { Github } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
@@ -84,7 +84,7 @@ export default function Home() {
           </div>
         </div>
         <div className="">
-          <FusionPlayer
+          <FusionPlyr
             src="https://stream.mux.com/01hdbfS3rAKVqWdh4n5jXcPJxT00q4hguWDxhRVMcFs7A.m3u8"
             poster="https://image.mux.com/01hdbfS3rAKVqWdh4n5jXcPJxT00q4hguWDxhRVMcFs7A/thumbnail.png"
             timeline="https://image.mux.com/01hdbfS3rAKVqWdh4n5jXcPJxT00q4hguWDxhRVMcFs7A/storyboard.vtt"

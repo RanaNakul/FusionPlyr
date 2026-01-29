@@ -1,13 +1,12 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
   "name": "fusionplyr",
-  "type": "registry:ui",
+  "type": "registry:component",
   "dependencies": ["hls.js", "lucide-react"],
   "files": [
     {
       "path": "components/ui/fusionplyr.tsx",
-      "type": "registry:ui",
-      "target": "components/ui/fusionplyr.tsx"
+      "type": "registry:component"
     }
   ]
 }
