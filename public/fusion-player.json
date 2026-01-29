@@ -1,0 +1,13 @@
+{
+  "$schema": "https://ui.shadcn.com/schema/registry-item.json",
+  "name": "fusion-player",
+  "type": "registry:ui",
+  "dependencies": ["hls.js", "lucide-react"],
+  "files": [
+    {
+      "path": "components/ui/fusion-player.tsx",
+      "type": "registry:ui",
+      "target": "components/ui/fusion-player.tsx"
+    }
+  ]
+}

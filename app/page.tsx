@@ -1,65 +1,125 @@
-import Image from "next/image";
+"use client";
+
+// import { ModeToggle } from "@/components/mode-toggle";
+import { Button } from "@/components/ui/button";
+import FusionPlayer from "@/components/ui/fusionplyr";
+// import SocialFlipButton from "@/components/ui/social-flip-button";
+import { Github } from "lucide-react";
+import { useEffect, useRef, useState } from "react";
+// import { ColorPicker, useColor } from "react-color-palette";
+// import "react-color-palette/css";
 
 export default function Home() {
+  const pickerRef = useRef(null);
+  const triggerRef = useRef(null);
+  // const [color, setColor] = useColor("#ffffff");
+  const [showPicker, setShowPicker] = useState(false);
+
+  // useEffect(() => {
+  //   if (!showPicker) return;
+
+  //   const handler = (e) => {
+  //     if (
+  //       pickerRef.current &&
+  //       !pickerRef.current.contains(e.target) &&
+  //       triggerRef.current &&
+  //       !triggerRef.current.contains(e.target)
+  //     ) {
+  //       setShowPicker(false);
+  //     }
+  //   };
+
+  //   document.addEventListener("mousedown", handler);
+  //   return () => document.removeEventListener("mousedown", handler);
+  // }, [showPicker]);
+
   return (
-    <div className="flex min-h-screen items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex min-h-screen w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
+    <div className="min-h-screen flex flex-col  ">
+      <div className=" w-full h-[100px] border-b border-primary">
+        <div className="w-9/12  mx-auto  h-full flex items-center justify-between px-10 border-x border-primary">
+          <p className="text-4xl font-bold">Fusion Player</p>
+          <div className="flex items-center gap-4">
+            <Button variant="ghost">Demo</Button>
+            <Button variant="ghost">Docs</Button>
+            {/* <ModeToggle />/ */}
+            <Github />
+          </div>
+        </div>
+      </div>
+      <div className="flex flex-1 items-center justify-between px-20  mx-auto gap-6 w-9/12 h-full border-x border-primary">
+        <div className="flex items-start flex-col gap-7">
+          <h1 className="text-6xl font-bold ">Fusion Player</h1>
+          <h2 className="text-2xl font-semibold">
+            Everything you need to play media <br /> for modern web apps.
+          </h2>
+          <div className="flex items-center gap-3">
+            <Button>Get Started</Button>
+            <Button variant="ghost">View Component</Button>
+            <div className="relative flex items-center gap-2 ">
+              <div className="group/picker relative flex flex-col items-center">
+                <p className="absolute -top-8 -left-11 opacity-0 bg-neutral-400/50 py-1 px-2  rounded-lg text-xs text-nowrap mb-1 group-hover/picker:opacity-100 transition-opacity duration-150 ease-in ">
+                  Pick Accent Color
+                </p>
+                <div
+                  ref={triggerRef}
+                  className="w-6 h-6 rounded-full cursor-pointer outline-2 outline-neutral-950"
+                  // style={{ backgroundColor: color.hex }}
+                  onClick={() => setShowPicker((prev) => !prev)}
+                />
+              </div>
+
+              {showPicker && (
+                <div ref={pickerRef} className="absolute -right-60 z-50">
+                  {/* <ColorPicker
+                    hideInput={["hsv"]}
+                    hideAlpha={true}
+                    color={color}
+                    onChange={setColor}
+                    width={250}
+                    height={150}
+                  /> */}
+                </div>
+              )}
+            </div>
+          </div>
+        </div>
+        <div className="">
+          <FusionPlayer
+            src="https://stream.mux.com/01hdbfS3rAKVqWdh4n5jXcPJxT00q4hguWDxhRVMcFs7A.m3u8"
+            poster="https://image.mux.com/01hdbfS3rAKVqWdh4n5jXcPJxT00q4hguWDxhRVMcFs7A/thumbnail.png"
+            timeline="https://image.mux.com/01hdbfS3rAKVqWdh4n5jXcPJxT00q4hguWDxhRVMcFs7A/storyboard.vtt"
+            // colorScheme={color.hex}
+          />
+          <p className="text-xs text-end mt-1 text-neutral-500 font-medium ">
+            press{" "}
+            <kbd className="dark:text-neutral-300 text-neutral-950">
+              shift + /
+            </kbd>{" "}
+            for shortcuts{" "}
           </p>
         </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
+      </div>
+
+      <div className="w-full h-[100px] border-t border-primary">
+        <div className="w-9/12  mx-auto  h-full flex items-center justify-between px-10 border-x border-primary">
+          <p className="text-[13px] ">@FusionPlayer, Inc. 2026</p>
+          <div className="relative w-fit flex items-center group ">
+            <p
+              className="
+                absolute right-0
+                opacity-100
+                transition-opacity duration-500 delay-400
+                group-hover:opacity-0
+                group-hover:delay-0
+                text-[13px] text-nowrap
+              "
+            >
+              Designed and developed by Nakul Rana
+            </p>
+            {/* <SocialFlipButton /> */}
+          </div>
         </div>
-      </main>
+      </div>
     </div>
   );
 }
