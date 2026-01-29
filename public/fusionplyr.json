@@ -1,6 +1,6 @@
 {
   "$schema": "https://ui.shadcn.com/schema/registry-item.json",
-  "name": "fusion-player",
+  "name": "fusionplyr",
   "type": "registry:ui",
   "dependencies": ["hls.js", "lucide-react"],
   "files": [
