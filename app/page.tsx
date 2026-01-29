@@ -2,7 +2,7 @@
 
 // import { ModeToggle } from "@/components/mode-toggle";
 import { Button } from "@/components/ui/button";
-import FusionPlayer from "@/components/ui/fusionplyr";
+import { FusionPlayer } from "@/components/ui/fusionplyr";
 // import SocialFlipButton from "@/components/ui/social-flip-button";
 import { Github } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
