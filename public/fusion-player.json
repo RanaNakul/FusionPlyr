@@ -5,9 +5,9 @@
   "dependencies": ["hls.js", "lucide-react"],
   "files": [
     {
-      "path": "components/ui/fusion-player.tsx",
+      "path": "components/ui/fusionplyr.tsx",
       "type": "registry:ui",
-      "target": "components/ui/fusion-player.tsx"
+      "target": "components/ui/fusionplyr.tsx"
     }
   ]
 }
